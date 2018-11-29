@@ -21,7 +21,7 @@
 </script>
 
 <style scoped lang="stylus">
-@import "~styles/variables.styl"
+@import "~stylus/variables.styl"
   .header
     display flex
     line-height .86rem
