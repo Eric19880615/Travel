@@ -9,6 +9,7 @@
           <p class="icon-desc">{{item.desc}}</p>
         </div>
       </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
 </template>
@@ -19,6 +20,7 @@
     data() {
       return {
         swiperOption: {
+          pagination: '.swiper-pagination',
           loop: true
         },
         iconList: [
@@ -94,10 +96,11 @@
 <style scoped lang="stylus">
   @import "~stylus/variables.styl"
   @import "~stylus/mixins.styl"
+  .icons
+    margin-top .2rem
   .icons >>> .swiper-container
     height 0
     padding-bottom 50%
-
   .icon
     position relative
     overflow hidden
