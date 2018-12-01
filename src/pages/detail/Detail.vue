@@ -1,6 +1,6 @@
 <template>
   <div>
-    <detail-banner></detail-banner>
+    <detail-banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></detail-banner>
     <detail-header></detail-header>
     <div class="content">
       <detail-list :list="list"></detail-list>
@@ -23,17 +23,25 @@
     },
     data() {
       return {
-        list: []
+        list: [],
+        sightName: '',
+        bannerImg: '',
+        gallaryImgs: [],
       }
     },
     methods: {
       fetchDetail() {
-        axios.get('/api/detail.json').then(this.processDetail)
+        axios.get('/api/detail.json', {params: {id: this.$route.params.id}}).then(this.processDetail)
       },
       processDetail(res) {
         res = res.data;
-        const data = res.data;
-        this.list = data.categoryList;
+        if (res.ret && res.data) {
+          const data = res.data;
+          this.sightName = data.sightName;
+          this.bannerImg = data.bannerImg;
+          this.gallaryImgs = data.gallaryImgs;
+          this.list = data.categoryList;
+        }
       }
     },
     mounted() {

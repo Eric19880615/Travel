@@ -2,14 +2,14 @@
   <div>
     <div class="banner" @click="handleBannerClick">
       <img class="banner-img"
-           src="//img1.qunarzz.com/sight/p0/1411/b6/662fc49d1d26a5a7775cf6b7f8b4ecec.water.jpg_600x330_c34588e7.jpg"
+           :src="bannerImg"
            alt="">
       <div class="banner-info">
-        <div class="banner-title">杭州野生动物世界(AAAA景区)</div>
-        <div class="banner-number"><span class="iconfont banner-icon">&#xe6e9;</span>39</div>
+        <div class="banner-title">{{sightName}}</div>
+        <div class="banner-number"><span class="iconfont banner-icon">&#xe6e9;</span>{{gallaryImgs.length}}</div>
       </div>
     </div>
-    <common-gallary @close="handleGallaryClose" :imgs="imgs" v-show="showGallary"></common-gallary>
+    <common-gallary @close="handleGallaryClose" :imgs="gallaryImgs" v-show="showGallary"></common-gallary>
   </div>
 </template>
 
@@ -21,13 +21,14 @@
     components: {
       CommonGallary
     },
+    props: {
+      sightName: String,
+      bannerImg: String,
+      gallaryImgs: Array
+    },
     data() {
       return {
         showGallary: false,
-        imgs: [
-          'http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg',
-          'http://img1.qunarzz.com/sight/p0/1709/76/7691528bc7d7ad3ca3.img.png_800x800_9ef05ee7.png'
-        ]
       }
     },
     methods: {
