@@ -2,6 +2,7 @@
   <div id="app">
     <!--keep-alive中的exclude里的页面不会被缓存-->
     <keep-alive exclude="Detail">
+    <!--<keep-alive>-->
       <router-view/>
     </keep-alive>
   </div>

@@ -26,6 +26,7 @@
     methods: {
       handleScroll() {
         const top = document.documentElement.scrollTop;
+        // console.log(top);
         if (top > 60) {
           let opacity = top / 140;
           opacity = opacity > 1 ? 1 : opacity;
@@ -37,6 +38,13 @@
           this.showAbs = true;
         }
       }
+    },
+    //是否使用keep-alive，再决定如何销毁事件监听
+    mounted() {
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed() {
+      window.removeEventListener('scroll', this.handleScroll);
     },
     activated() {
       window.addEventListener('scroll', this.handleScroll);
