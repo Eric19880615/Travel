@@ -32,6 +32,7 @@
 </script>
 
 <style scoped lang="stylus">
+  /*样式穿透 .wrapper下面的子组件只要出现这个class，就都修改成现在的样式*/
   .wrapper >>> .swiper-pagination-bullet-active
     background #fff
 
@@ -39,6 +40,7 @@
     width 100%
     overflow hidden
     height 0
+    /*高度相对于宽度自动撑开30% 优化用户体验*/
     padding-bottom 30%
     background #ccc
 
