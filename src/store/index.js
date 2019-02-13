@@ -15,7 +15,7 @@ export default new Vuex.Store({
   //   }
   // },
   getters: {
-    doubleCity() {
+    doubleCity(state) {
       return state.city + ' ' + state.city
     }
   }
